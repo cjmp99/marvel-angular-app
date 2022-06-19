@@ -1,0 +1,99 @@
+.content-alphabet {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.content-alphabet p{
+    width: 50px;
+    text-align: center;
+}
+
+.content-alphabet p:hover{
+    cursor: pointer;
+    border-bottom: 2px solid #000;
+}
+
+.content-alphabet .input {
+    width: 200px;
+    height: 35px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    padding-left: 10px;
+    position: relative;
+    left: 30px;
+}
+
+.ng-untouched {
+    width: 200px;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.content-alphabet .byPrice {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 50px;
+    margin-top: 20px;
+}
+
+.content-alphabet .byPrice img{
+    width: 18px;
+    cursor: pointer;
+}
+
+.pagination {
+    margin-top: 15px;
+}
+
+.content-cards {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.content-cards .card {
+    width: 100%;
+    height: 400px;
+    color: #000;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+.content-cards .card .info-comic {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    padding: 10px;
+}
+
+.content-cards .card img {
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.content-cards .card:hover::after {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.content-cards .card .name {
+    font-size: 2rem;
+}
+
+.content-cards .card p {
+    font-size: 1.5rem;
+}

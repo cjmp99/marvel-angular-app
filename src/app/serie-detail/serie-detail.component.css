@@ -1,0 +1,87 @@
+.container-detail {
+    width: 80%;
+    height: 100vh;
+    margin: auto;
+}
+
+.view-detail {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.view-detail .info {
+    width: 50%;
+    max-width: 50%;
+    min-width: 50%;
+    height: 500px;
+    overflow: auto;
+}
+
+.view-detail .info h2 {
+    margin-top: 20px;
+}
+
+.view-detail .info .info-list {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.view-detail .image {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+}
+
+.view-detail .image img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.more-info {
+    width: 100%;
+    margin-top: 20px;
+    overflow: auto;
+    margin: auto;
+}
+
+.more-info .content-comics {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+.more-info .content-comics .card {
+    min-width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    position: relative;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    transition: .3s ease-in-out all;
+}
+
+.more-info .content-comics .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.content-comics .card p {
+    text-align: center;
+    margin-top: 10px;
+}

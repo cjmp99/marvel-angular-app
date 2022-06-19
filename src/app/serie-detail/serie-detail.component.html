@@ -1,0 +1,35 @@
+<div class="container-detail">
+    <div class="view-detail">
+        <div class="info">
+            <h1>{{serie.title}}</h1>
+
+            <p>{{serie.description === '' || !serie.description ? 'This serie has no description!' : serie.description}}</p>
+
+            <h2>Characters</h2>
+             <p *ngIf="characters.length === 0">This comic does not have characters</p>
+            <li class="info-list" *ngFor="let item of characters"
+                [routerLink]="['/character', item.resourceURI.substring(47, 54)]" title="See details">{{item.name}}</li>
+
+            <h2>Creators</h2>
+            <p *ngIf="creators.length === 0">This comic does not have creators</p>
+            <li class="info-list" *ngFor="let item of creators">{{item.name}}</li>
+        </div>
+        <div class="image">
+            <img src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}" alt="">
+        </div>
+    </div>
+
+    <div class="more-info">
+        <h1>Series Suggestions</h1>
+        <p *ngIf="suggestions.length === 0">This character does not have series</p>
+        <div class="content-comics">
+            <div class="card" *ngFor="let item of suggestions"
+                style="background-image: url({{item.thumbnail.path}}.{{item.thumbnail.extension}});" title="See details"
+                [routerLink]="['/serie', item.id]"
+                (click)="changeObservable()"
+                >
+                <p>{{item.title}}</p>
+            </div>
+        </div>
+    </div>
+</div>

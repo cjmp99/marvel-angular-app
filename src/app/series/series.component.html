@@ -1,0 +1,39 @@
+<div class="content-cards">
+    <div class="content-alphabet">
+        <select class="input" (change)="filterSerieType(searchByType.value)" #searchByType>
+            <option value="">Filter By Serie Type</option>
+            <option value="collection">Collection</option>
+            <option value="limited">Limited</option>
+            <option value="one shot">One Shot</option>
+            <option value="ongoing">Ongoing</option>
+        </select>
+        <select class="input" (change)="filterByRating(searchByRating.value)" #searchByRating>
+            <option value="">Filter By Rating</option>
+            <option value="T">T</option>
+            <option value="T+">T+</option>
+            <option value="PSR">PSR</option>
+            <option value="Marvel PSR">Marvel PSR</option>
+        </select>
+        <input class="input" type="text" placeholder="Search By Title" #searchSerie
+            (keyup)="filterSerie(searchSerie.value)">
+
+        <input type="date" class="input" #searchByDate (change)="filterByDate(searchByDate.value)">
+    </div>
+    <div class="content-alphabet pagination">
+        <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+    </div>
+    <div class="card" *ngFor="let item of results | paginate: { itemsPerPage: 9, currentPage: pages }"
+        title="See details" [routerLink]="['/serie', item.id]">
+        <img src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" alt="">
+        <div class="info-comic">
+            <p class="name">{{ item.title }}</p>
+            <p *ngIf="item.writer">Writer: {{ item.writer }}</p>
+            <p>Start Year: {{ item.startYear }}</p>
+            <p>End Year: {{ item.endYear }}</p>
+            <p *ngIf="item.rating">Rating: {{ item.rating }}</p>
+            <p>{{item.description === '' || !item.description ? 'This serie has no description!' : item.description}}
+            </p>
+        </div>
+
+    </div>
+</div>

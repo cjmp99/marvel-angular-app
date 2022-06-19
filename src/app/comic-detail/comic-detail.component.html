@@ -1,0 +1,41 @@
+<div class="container-detail">
+    <div class="view-detail">
+        <div class="info">
+            <h1>{{comic.title}}</h1>
+
+            <h2>$ {{comic.price.price}}</h2>
+
+            <p>{{comic.description === '' || !comic.description ? 'This comic has no description!' : comic.description}}
+            </p>
+
+
+            <h2>Characters</h2>
+            <p *ngIf="characters.length === 0">This comic does not have characters</p>
+            <li class="info-list" *ngFor="let item of characters"
+                [routerLink]="['/character', item.resourceURI.substring(47, 54)]" title="See details">{{item.name}}</li>
+
+            <h2>Creators</h2>
+            <p *ngIf="creators.length === 0">This comic does not have creators</p>
+            <li class="info-list" *ngFor="let item of creators">{{item.name}}</li>
+        </div>
+        <div class="image">
+            <img src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
+        </div>
+    </div>
+
+    <div class="more-info">
+        <h1>Comics Suggestions</h1>
+        <p *ngIf="suggestions.length === 0">This character does not have comics</p>
+        <div class="content-comics">
+            <div class="card" *ngFor="let item of suggestions"
+                style="background-image: url({{item.thumbnail.path}}.{{item.thumbnail.extension}});" title="See details"
+                [routerLink]="['/comic', item.id]"
+                (click)="changeObservable()"
+                >
+                <p>{{item.title}}</p>
+                <p *ngIf="item.writer">{{item.writer}}</p>
+                <p>{{item.price.type}}: $ {{item.price.price}}</p>
+            </div>
+        </div>
+    </div>
+</div>

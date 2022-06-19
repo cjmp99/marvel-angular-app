@@ -1,0 +1,17 @@
+<div class="content-cards">
+    <div class="content-alphabet">
+        <input type="text" placeholder="Search By Name" #searchCharacter
+            (keyup)="filterCharacters(searchCharacter.value)">
+    </div>
+    <div class="content-alphabet pagination">
+        <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+    </div>
+    <div class="card" *ngFor="let item of results | paginate: { itemsPerPage: 8, currentPage: pages }"
+        style="background-image: url({{item.thumbnail.path}}.{{item.thumbnail.extension}});" title="See details"
+        [routerLink]="['/creator', item.id]">
+        <p class="name">{{ item.firstName }} {{ item.lastName }}</p>
+        <p>Comics: {{ item.comics.available }}</p>
+        <p>Series: {{ item.series.available }}</p>
+
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="container-detail">
+    <div class="view-detail">
+        <div class="info">
+            <h1>{{character.name}}</h1>
+
+            <p>{{character.description === '' ? 'This character has no description!' : character.description}}</p>
+
+
+            <h2>Comics</h2>
+            <p *ngIf="character.comics.items.length === 0">This character does not have comics</p>
+            <li class="info-list" *ngFor="let item of character.comics.items">{{item.name}}</li>
+
+            <h2>Series</h2>
+            <p *ngIf="character.series.items.length === 0">This character does not have series</p>
+            <li class="info-list" *ngFor="let item of character.series.items">{{item.name}}</li>
+        </div>
+        <div class="image">
+            <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="">
+        </div>
+    </div>
+
+    <div class="more-info">
+        <h1>Comics Collection</h1>
+        <p *ngIf="character.comics.items.length === 0">This character does not have comics</p>
+        <div class="content-comics">
+            <div class="card" *ngFor="let item of comics"
+                style="background-image: url({{item.thumbnail.path}}.{{item.thumbnail.extension}});"
+                title="See details"
+                [routerLink]="['/comics']"
+                >
+                <p>Title: {{item.title}}</p>
+                <p *ngIf="item.writer">Writer: {{item.writer}}</p>
+                <p *ngIf="item.editor">Editor: {{item.editor}}</p>
+                <p>{{item.price.type}}: $ {{item.price.price}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="more-info">
+        <h1>Series Collection</h1>
+        <p *ngIf="character.series.items.length === 0">This character does not have series</p>
+        <div class="content-comics">
+            <div class="card" *ngFor="let item of series"
+                style="background-image: url({{item.thumbnail.path}}.{{item.thumbnail.extension}});"
+                title="See details"
+                [routerLink]="['/series']"
+                >
+                <p>Title: {{item.title}}</p>
+                <p>Rating Type: {{item.rating === '' ? 'does not exist' : item.rating}}</p>
+                <p>Start Year: {{item.startYear}}</p>
+                <p>End Year: {{item.endYear}}</p>
+            </div>
+        </div>
+    </div>
+</div>

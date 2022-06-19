@@ -1,0 +1,82 @@
+.content-alphabet {
+    width: 100%;
+    display: flex;
+}
+
+.content-alphabet p{
+    width: 50px;
+    text-align: center;
+}
+
+.content-alphabet p:hover{
+    cursor: pointer;
+    border-bottom: 2px solid #000;
+}
+
+.content-alphabet input {
+    width: 300px;
+    height: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    padding-left: 10px;
+}
+
+.pagination {
+    margin-top: 15px;
+}
+
+.content-cards {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.content-cards .card {
+    width: 250px;
+    height: 250px;
+    margin-top: 20px;
+    position:relative;
+    color: #fff;
+    z-index:1;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: .3s ease-in-out all;
+}
+
+.content-cards .card:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.content-cards .card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.content-cards .card:hover::after {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.content-cards .card .name {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.content-cards .card p {
+    font-size: 1.5rem;
+    text-align: center;
+}
