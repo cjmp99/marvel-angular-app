@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./character-detail.component.css']
 })
 export class CharacterDetailComponent implements OnInit {
-  character: any = {};
+  character: any = null;
   comics: any[] = [];
   series: any[] = [];
   writer: any = {};
